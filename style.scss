@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+$light-gray-tranlucent: rgba(182, 182, 182, 0.603);
+$transparent: rgba(255, 255, 255, 0);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+}
+
+img {
+  width: 100%;
+  object-fit: fit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.image-slider {
+  width: 75vw;
+  height: 75vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  
+  button {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    margin: 0 1.5rem;
+    padding: 0.5rem;
+    z-index: 1;
+    font-size: 2rem;
+    font-family: inherit;
+    color: $light-gray-tranlucent;
+    background-color: $transparent;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+
+    &:hover {
+      background-color: $light-gray-tranlucent;
+      color: #fff;
+    }
+  }
+
+  #next-btn {
+    right: 0%;
+  }
+
+  #prev-btn {
+    left: 0%;
+  }
+
+  .btn-group {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+
+    button {
+      color: #fff;
+      position: relative;
+      margin: 0 0.5rem;
+      padding: 0 0.5rem;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: $light-gray-tranlucent;
+      transition: background-color 300ms ease-in-out;
+
+      &:hover {
+        background-color: grey;
+      }
+
+      &.active {
+        background-color: #fff;
+      }
+    }
+  }
+  
+  .image-container {
+    position: absolute;
+    width: 500%;
+    transition: left 500ms ease-in-out;
+
+    &#position1 {
+      left: 0;
+    }
+    
+    &#position2 {
+      left: -100%;
+    }
+
+    &#position3 {
+      left: -200%;
+    }
+    
+    &#position4 {
+      left: -300%;
+    }
+
+    &#position5 {
+      left: -400%;
+    }
+    
+    .image {
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+    }
+  }
+}
